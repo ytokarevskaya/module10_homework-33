@@ -1,10 +1,8 @@
 let array3 = [4, 3, 'str', 6, null, 8, '-', 0, 'str2', 9];
-let evenCount = 0;
-let oddCount = 0;
-let zeroCount = 0;
+let evenCount = 0, oddCount = 0, zeroCount = 0;
 
 for (let i = 0; i < array3.length; i++) {
-    if (typeof array3[i] === 'number') {
+    if (typeof array3[i] === 'number' && !isNaN(array3[i])) {
         if (array3[i] === 0)
             zeroCount += 1;
         else if (array3[i] % 2 === 0)
@@ -16,3 +14,6 @@ for (let i = 0; i < array3.length; i++) {
 
 console.log(`Количество четных элементов - ${evenCount}\nКоличество нечетных элементов - ${oddCount}
 Количество нулей - ${zeroCount}`);
+
+// К этому заданию есть замечание: не хватает проверки на NaN. Значение NaN имеет особенность, что хотя оно и не является числом, его тип равен number. Поэтому это значение пройдет вашу проверку на typeof и будет ошибочно причислено к нечетным значениям. Выше исправила на более правильный вариант
+// Также, когда объявляете несколько переменных сразу, можно использовать более компактную запись
